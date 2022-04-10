@@ -29,8 +29,22 @@
                     <local:TourList x:Name="TourList" Grid.Column="0"/>
                     <!-- Splitter -->
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-                    <!-- Tour Details-->
-                    <local:TourDetails x:Name="TourDetails" Grid.Column="2"/>
+                    
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="3*" />
+                        </Grid.RowDefinitions>
+                        <!-- Tour Details-->
+                        <Grid Grid.Row="1">
+                            <local:TourDetails x:Name="TourDetails" />
+                        </Grid>
+                        <!-- Tour Details-->
+                        <Grid Grid.Row="2">
+                            <local:TourLog x:Name="TourLog"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </Border>
