@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>SWE2_TourPlanner.BusinessLayer</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SWE2-TourPlanner.DataAccessLayer.PostgresSqlServer\SWE2-TourPlanner.DataAccessLayer.PostgresSqlServer.csproj" />
+    <ProjectReference Include="..\SWE2-TourPlanner.DataAccessLayer\SWE2-TourPlanner.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\SWE2-TourPlanner.Models\SWE2-TourPlanner.Models.csproj" />
+  </ItemGroup>
+
+</Project>

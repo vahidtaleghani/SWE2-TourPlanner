@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>SWE2_TourPlanner</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SWE2-TourPlanner.BusinessLayer\SWE2-TourPlanner.BusinessLayer.csproj" />
+    <ProjectReference Include="..\SWE2-TourPlanner.Models\SWE2-TourPlanner.Models.csproj" />
+  </ItemGroup>
+
+</Project>

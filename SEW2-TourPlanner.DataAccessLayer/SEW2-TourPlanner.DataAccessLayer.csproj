@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>SEW2_TourPlanner.DataAccessLayer</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SWE2-TourPlanner.Models\SWE2-TourPlanner.Models.csproj" />
+  </ItemGroup>
+
+</Project>

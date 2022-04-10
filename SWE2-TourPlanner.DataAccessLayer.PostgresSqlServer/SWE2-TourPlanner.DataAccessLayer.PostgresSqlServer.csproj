@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="6.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SWE2-TourPlanner.DataAccessLayer\SWE2-TourPlanner.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+</Project>
