@@ -10,14 +10,20 @@ namespace SWE2_TourPlanner.ViewModels
         private readonly TourListVM tourListVM;
         IEnumerable<TourItem> result;
 
-        public MainVM(TourListVM tourListVM, SearchBarVM searchBarVM)
+        public MainVM()
+        {
+
+        }
+        public MainVM(TourListVM tourListVM, SearchBarVM searchBarVM , TourDetailsVM tourDetailsVM)
         {
             this.tourItemFactory = TourFactory.GetInstance();
             this.result = this.tourItemFactory.GetItems();
+
             searchBarVM.SearchTextChanged += (_, searchName) =>
             {
                 SearchTours(searchName);
             };
+         
             this.tourListVM = tourListVM;
             tourListVM.FillListBox(result);
         }

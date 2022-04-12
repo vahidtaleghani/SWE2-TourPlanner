@@ -40,7 +40,7 @@
                         <Grid Grid.Row="1">
                             <local:TourDetails x:Name="TourDetails" />
                         </Grid>
-                        <!-- Tour Details-->
+                        <!-- Tour Log-->
                         <Grid Grid.Row="2">
                             <local:TourLog x:Name="TourLog"/>
                         </Grid>

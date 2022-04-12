@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SWE2_TourPlanner.ViewModels;
+using System.Windows;
 
 
 namespace SWE2_TourPlanner

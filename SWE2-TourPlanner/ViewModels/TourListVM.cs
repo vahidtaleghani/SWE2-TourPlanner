@@ -8,7 +8,7 @@ namespace SWE2_TourPlanner.ViewModels
     {
         private TourItem currentItem;
         public ObservableCollection<TourItem> TourItems { get; set; }
-
+        
         public TourItem CurrentItem
         {
             get
@@ -21,9 +21,11 @@ namespace SWE2_TourPlanner.ViewModels
                 {
                     currentItem = value;
                     RaisePropertyChangedEvent(nameof(CurrentItem));
+                    new TourDetailsVM(currentItem);
                 }
             }
         }
+        
         public TourListVM()
         {
             TourItems = new ObservableCollection<TourItem>();
@@ -37,5 +39,6 @@ namespace SWE2_TourPlanner.ViewModels
                 TourItems.Add(item);
             }
         }
+
     }
 }

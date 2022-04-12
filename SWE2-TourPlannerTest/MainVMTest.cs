@@ -16,7 +16,7 @@ namespace SWE2_TourPlannerTest
             // Arrange
             TourListVM tourListVM = new TourListVM();
             SearchBarVM searchBarVM = new SearchBarVM();
-            MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
+            //MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
             // Act
             int expected = 5;
             int actual = tourListVM.TourItems.Count;
@@ -31,7 +31,7 @@ namespace SWE2_TourPlannerTest
             // Arrange
             TourListVM tourListVM = new TourListVM();
             SearchBarVM searchBarVM = new SearchBarVM();
-            MainVM mainViewModel = new MainVM(tourListVM,searchBarVM);
+            //MainVM mainViewModel = new MainVM(tourListVM,searchBarVM);
             searchBarVM.SearchName = "wien";
             // Act
             searchBarVM.SearchCommand.Execute(null); // simulate search button click
@@ -47,7 +47,7 @@ namespace SWE2_TourPlannerTest
             // Arrange
             TourListVM tourListVM = new TourListVM();
             SearchBarVM searchBarVM = new SearchBarVM();
-            MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
+            //MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
             // Act
             searchBarVM.ClearCommand.Execute(null); // simulate clear button click
             int expectedDataCount = 5;

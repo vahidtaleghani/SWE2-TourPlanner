@@ -13,7 +13,7 @@
             </Grid.RowDefinitions>
         <!-- Lable -->
         <TextBlock Grid.Row="0" Text="Tour:" FontWeight="Bold" FontSize="18" FontFamily="Calibri" Margin="5,0,0,0" />
-
+       
         <!-- Tour List -->
         <ListBox Grid.Row="1" 
                                  x:Name="listTourItems" 
@@ -21,7 +21,7 @@
                                  SelectedItem="{Binding CurrentItem}" 
                                  DisplayMemberPath="Name" 
                                  Margin="10,10,10,10"/>
-
+       
         <Grid Grid.Row="2" VerticalAlignment="Center" Margin="5,5,5,5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="14" />
@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
+            
             <Button Grid.Column="0" Content="Add" FontFamily="Bahnschrift" FontWeight="Bold" Grid.ColumnSpan="2"/>
             <Button Grid.Column="2" Content="Edit" FontFamily="Bahnschrift" FontWeight="Bold"/>
             <Button Grid.Column="3" Content="Delete" FontFamily="Bahnschrift" FontWeight="Bold"/>

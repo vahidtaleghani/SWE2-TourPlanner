@@ -13,15 +13,18 @@ namespace SWE2_TourPlanner
         {
             var searchBarVM = new SearchBarVM();
             var tourListVM = new TourListVM();
+            var tourDetailsVM = new TourDetailsVM();
 
             var wnd = new MainWindow
             {
-                DataContext = new MainVM(tourListVM,searchBarVM),
+                DataContext = new MainVM(tourListVM,searchBarVM,tourDetailsVM),
                 SearchBar = { DataContext = searchBarVM },
-                TourList = { DataContext = tourListVM }
+                TourList = { DataContext = tourListVM },
+                TourDetails = { DataContext = tourDetailsVM }
             };
 
             wnd.Show();
         }
+        
     }
 }
