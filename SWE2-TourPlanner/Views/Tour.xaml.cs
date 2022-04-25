@@ -18,9 +18,9 @@ namespace SWE2_TourPlanner.Views
     /// <summary>
     /// Interaktionslogik für TourList.xaml
     /// </summary>
-    public partial class TourList : UserControl
+    public partial class Tour : UserControl
     {
-        public TourList()
+        public Tour()
         {
             InitializeComponent();
         }

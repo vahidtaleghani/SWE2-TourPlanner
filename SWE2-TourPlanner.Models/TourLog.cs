@@ -8,12 +8,12 @@ namespace SWE2_TourPlanner.Models
         public int LogId { get; set; }
         public DateTime DateTime { get; set; }
         public string Report { get; set; }
-        public Double Distance { get; set; }
+        public double Distance { get; set; }
         public TimeSpan TotalTime { get; set; }
         public double Rating { get; set; }
         public TourItem LogTourItem { get; set; }
 
-        public TourLog(int logId, DateTime dateTime , string report, Double distance , TimeSpan totalTime , double rating , TourItem LogTourItem)
+        public TourLog(int logId, DateTime dateTime , string report, double distance , TimeSpan totalTime , double rating , TourItem LogTourItem)
         {
             this.LogId = logId;
             this.DateTime = dateTime;

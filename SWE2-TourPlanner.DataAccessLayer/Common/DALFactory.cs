@@ -39,6 +39,7 @@ namespace SEW2_TourPlanner.DataAccessLayer.Common
         private static IDatabase CreateDatabase(string connectionString)
         {
             //string databaseClassName = assemblyName + ".Database";
+            
             Type dbClass = dalAssembly.GetType("SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer.Database");
 
             return Activator.CreateInstance(dbClass, new object[] { connectionString }) as IDatabase;
@@ -55,8 +56,8 @@ namespace SEW2_TourPlanner.DataAccessLayer.Common
         // create log tour sql/file DAO object
         public static ITourLogDAO CreateTourLogDAO()
         {
-            string className = assemblyName + ".TourLogSqlDAO";
-            Type tourLogType = dalAssembly.GetType(className);
+            //string className = assemblyName + ".TourLogSqlDAO";
+            Type tourLogType = dalAssembly.GetType("SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer.TourLogSqlDAO");
             return Activator.CreateInstance(tourLogType) as ITourLogDAO;
         }
     }

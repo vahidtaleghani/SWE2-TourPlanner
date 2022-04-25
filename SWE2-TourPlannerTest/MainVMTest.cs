@@ -14,7 +14,7 @@ namespace SWE2_TourPlannerTest
         public void TestData_ShouldContainInitialList()
         {
             // Arrange
-            TourListVM tourListVM = new TourListVM();
+            TourVM tourListVM = new TourVM();
             SearchBarVM searchBarVM = new SearchBarVM();
             //MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
             // Act
@@ -29,7 +29,7 @@ namespace SWE2_TourPlannerTest
         public void TestSearchCommand_Shouldfind()
         {
             // Arrange
-            TourListVM tourListVM = new TourListVM();
+            TourVM tourListVM = new TourVM();
             SearchBarVM searchBarVM = new SearchBarVM();
             //MainVM mainViewModel = new MainVM(tourListVM,searchBarVM);
             searchBarVM.SearchName = "wien";
@@ -45,7 +45,7 @@ namespace SWE2_TourPlannerTest
         public void TestClearCommand_ShouldClear()
         {
             // Arrange
-            TourListVM tourListVM = new TourListVM();
+            TourVM tourListVM = new TourVM();
             SearchBarVM searchBarVM = new SearchBarVM();
             //MainVM mainViewModel = new MainVM(tourListVM, searchBarVM);
             // Act

@@ -37,6 +37,11 @@ namespace SWE2_TourPlanner.BusinessLayer
             ITourLogDAO tourLogDAO = DALFactory.CreateTourLogDAO();
             return tourLogDAO.AddNewTourLog(tourLog, tourItem);
         }
+        public IEnumerable<TourLog> GetTourLog(TourItem tourItem)
+        {
+            ITourLogDAO tourLogDAO = DALFactory.CreateTourLogDAO();
+            return tourLogDAO.GetLogItems(tourItem);
+        }
 
     }
 }

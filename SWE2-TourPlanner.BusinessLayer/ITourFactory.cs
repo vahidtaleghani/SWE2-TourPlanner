@@ -9,5 +9,8 @@ namespace SWE2_TourPlanner.BusinessLayer
     {
         IEnumerable<TourItem> GetItems();
         IEnumerable<TourItem> Search(String itemName, bool caseSensitive = false);
+        TourItem CreateTourItem(TourItem tourItem);
+        TourLog CreateTourLog(TourLog tourLog, TourItem tourItem);
+        IEnumerable<TourLog> GetTourLog(TourItem tourItem);
     }
 }

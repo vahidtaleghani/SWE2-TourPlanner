@@ -7,14 +7,14 @@ namespace SWE2_TourPlanner.ViewModels
     public class MainVM : BaseViewModel
     {
         private ITourFactory tourItemFactory;
-        private readonly TourListVM tourListVM;
+        private readonly TourVM tourListVM;
         IEnumerable<TourItem> result;
 
         public MainVM()
         {
 
         }
-        public MainVM(TourListVM tourListVM, SearchBarVM searchBarVM , TourDetailsVM tourDetailsVM)
+        public MainVM(TourVM tourListVM, SearchBarVM searchBarVM )
         {
             this.tourItemFactory = TourFactory.GetInstance();
             this.result = this.tourItemFactory.GetItems();
