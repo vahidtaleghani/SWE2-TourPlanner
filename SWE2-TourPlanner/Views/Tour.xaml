@@ -42,7 +42,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Add" FontFamily="Bahnschrift" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Button Grid.Column="0" Content="Add" FontFamily="Bahnschrift" FontWeight="Bold" Grid.ColumnSpan="2" Command="{Binding AddNewTour}"/>
                 <Button Grid.Column="2" Content="Edit" FontFamily="Bahnschrift" FontWeight="Bold"/>
                 <Button Grid.Column="3" Content="Delete" FontFamily="Bahnschrift" FontWeight="Bold"/>
             </Grid>
@@ -69,23 +69,10 @@
                     </Grid.ColumnDefinitions>
                     <TabControl Margin="10,-34,10,10" Grid.ColumnSpan="2">
                         <TabItem Header="Route" Margin="-2,-2,-2,1">
-                            <Grid Background="#FFE5E5E5" Margin="-1,0,1,0" Height="172">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="14*"/>
-                                    <ColumnDefinition Width="89*"/>
-                                </Grid.ColumnDefinitions>
-                            </Grid>
+                            <Image Source="{Binding CurrentTourImagePath, TargetNullValue={x:Null}}"/>
                         </TabItem>
                         <TabItem Header="Description" Margin="-2,-2,-2,1">
-                            <Grid Background="#FFE5E5E5" Margin="-1,0,1,0" Height="172">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="8*"/>
-                                    <ColumnDefinition Width="247*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="1">
-                                    <TextBlock Text="{Binding CurrentItem.Description}" Margin="0,10,0,0"/>
-                                </Grid>
-                            </Grid>
+                            <TextBlock Text="{Binding CurrentItem.Description}" Margin="0,10,0,0"/>
                         </TabItem>
                     </TabControl>
                 </Grid>

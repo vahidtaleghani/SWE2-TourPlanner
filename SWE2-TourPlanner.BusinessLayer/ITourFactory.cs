@@ -12,5 +12,8 @@ namespace SWE2_TourPlanner.BusinessLayer
         TourItem CreateTourItem(TourItem tourItem);
         TourLog CreateTourLog(TourLog tourLog, TourItem tourItem);
         IEnumerable<TourLog> GetTourLog(TourItem tourItem);
+        string GetImageUrl(string tourName);
+        int GetLastTourId();
+        public void SaveRouteImageFromApi(string from, string to, string tourName);
     }
 }

@@ -8,5 +8,6 @@ namespace SEW2_TourPlanner.DataAccessLayer.DAO
         TourItem FindTourItemById(int tourItemId);
         TourItem AddNewTourItem(TourItem tourItem);
         IEnumerable<TourItem> GetTourItems();
+        int GetLastTourId();
     }
 }

@@ -10,9 +10,9 @@ namespace SWE2_TourPlanner.Models
         public string From { get; set; }
         public string To { get; set; }
         public string ImagePath { get; set; }
-        public string Route { get; set; }
+        public double Distance { get; set; }
 
-        public TourItem(int tourId, string name, string description, string from , string to, string imagePath, string route)
+        public TourItem(int tourId, string name, string description, string from , string to, string imagePath, double distance)
         {
             this.TourId = tourId;
             this.Name = name;
@@ -20,7 +20,7 @@ namespace SWE2_TourPlanner.Models
             this.From = from;
             this.To = to;
             this.ImagePath = imagePath;
-            this.Route = route;
+            this.Distance = distance;
         }
     }
 }

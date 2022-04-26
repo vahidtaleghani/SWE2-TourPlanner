@@ -14,7 +14,7 @@ namespace SWE2_TourPlanner.ViewModels
         {
 
         }
-        public MainVM(TourVM tourListVM, SearchBarVM searchBarVM )
+        public MainVM(TourVM tourListVM, SearchBarVM searchBarVM)
         {
             this.tourItemFactory = TourFactory.GetInstance();
             this.result = this.tourItemFactory.GetItems();

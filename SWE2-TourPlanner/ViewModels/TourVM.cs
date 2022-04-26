@@ -1,30 +1,39 @@
 ﻿using SWE2_TourPlanner.BusinessLayer;
 using SWE2_TourPlanner.Models;
+using SWE2_TourPlanner.ViewModels;
+using SWE2_TourPlanner.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace SWE2_TourPlanner.ViewModels
 {
     public class TourVM : BaseViewModel
     {
-        //Tour items
 
-        // TourLog items
+        private ITourFactory tourItemFactory;
+        private IEnumerable<TourLog> tourLogs;
+
+
+        private TourItem currentItem;
+        private TourLog currentLog;
+
+        //Tour items variable 
+        private string currentTourImagePath;
+        
+        // TourLog items variable 
         private string dateTime;
         private string report;
         private string distance;
         private string totalTime;
         private string rating;
 
-       
-        private TourItem currentItem;
-        private TourLog currentLog;
+        //command
+        private ICommand addNewTour;
+        public ICommand AddNewTour => addNewTour ??= new RelayCommand(PerformAddNewTour);
 
         public ObservableCollection<TourItem> TourItems { get; set; }
         public ObservableCollection<TourLog> TourLogs { get; set; }
-
-        private ITourFactory tourItemFactory;
-        private IEnumerable<TourLog> tourLogs;
 
         public TourVM()
         {
@@ -63,7 +72,10 @@ namespace SWE2_TourPlanner.ViewModels
                     currentItem = value;
                     RaisePropertyChangedEvent(nameof(CurrentItem));
                     this.tourItemFactory = TourFactory.GetInstance();
+                    currentTourImagePath = this.tourItemFactory.GetImageUrl(currentItem.ImagePath);
+                    RaisePropertyChangedEvent(nameof(CurrentTourImagePath));
                     FillLogBox(this.tourItemFactory.GetTourLog(currentItem));
+                    
                 }
             }
         }
@@ -80,6 +92,19 @@ namespace SWE2_TourPlanner.ViewModels
                 {
                     tourLogs = value;
                     RaisePropertyChangedEvent(nameof(Logs));
+                }
+            }
+        }
+
+        public string CurrentTourImagePath
+        {
+            get { return currentTourImagePath; }
+            set
+            {
+                if ((currentTourImagePath != value) && (value != null))
+                {
+                    currentTourImagePath = value;
+                    RaisePropertyChangedEvent(nameof(CurrentTourImagePath));
                 }
             }
         }
@@ -165,5 +190,17 @@ namespace SWE2_TourPlanner.ViewModels
             }
         }
 
+     
+
+        private void PerformAddNewTour(object commandParameter)
+        {
+            AddTour addTour = new AddTour();
+            addTour.DataContext = new AddTourVM();
+            addTour.ShowDialog();
+            this.tourItemFactory = TourFactory.GetInstance();
+            IEnumerable<TourItem> result = this.tourItemFactory.GetItems();
+            FillListBox(result);
+
+        }
     }
 }

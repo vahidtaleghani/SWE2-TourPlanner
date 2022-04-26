@@ -16,9 +16,9 @@ namespace SWE2_TourPlanner
 
             var wnd = new MainWindow
             {
-                DataContext = new MainVM(tourVM,searchBarVM),
+                DataContext = new MainVM(tourVM, searchBarVM),
                 SearchBar = { DataContext = searchBarVM },
-                Tour = { DataContext = tourVM },
+                Tour = { DataContext = tourVM }
             };
 
             wnd.Show();

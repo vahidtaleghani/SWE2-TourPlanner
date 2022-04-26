@@ -13,7 +13,8 @@ namespace SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer
     {
         private const string SQL_FIND_BY_ID = "SELECT * FROM public.\"tour_item\" WHERE \"tour_item_id\"=@Id;";
         private const string SQL_GET_ALL_TOURS = "SELECT * FROM public.\"tour_item\";";
-        private const string SQL_INSERT_NEW_TOUR = "INSERT INTO public.\"tour_item\" (\"name\", \"description\", \"from\",\"to\",\"image_path\",\"route\") VALUES (@Name, @Description, @From , @To , @ImagePath , @Route) RETURNING \"tour_item_id\";";
+        private const string SQL_INSERT_NEW_TOUR = "INSERT INTO public.\"tour_item\" (\"name\", \"description\", \"from\",\"to\",\"image_path\",\"distance\") VALUES (@Name, @Description, @From , @To , @ImagePath , @Distance) RETURNING \"tour_item_id\";";
+        private const string SQL_GET_LAST_TOURID = "SELECT * FROM public.\"tour_item\" ORDER BY \"tour_item_id\" DESC LIMIT 1;";
 
         private IDatabase database;
 
@@ -35,7 +36,7 @@ namespace SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer
             database.DefineParameter(insertCommand, "@From", DbType.String, tourItem.From);
             database.DefineParameter(insertCommand, "@To", DbType.String, tourItem.To);
             database.DefineParameter(insertCommand, "@ImagePath", DbType.String, tourItem.ImagePath);
-            database.DefineParameter(insertCommand, "@Route", DbType.String, tourItem.Route);
+            database.DefineParameter(insertCommand, "@Distance", DbType.Double, tourItem.Distance);
 
             return FindTourItemById(database.ExecuteScalar(insertCommand));
         }
@@ -54,8 +55,16 @@ namespace SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer
         // get all tourItem
         public IEnumerable<TourItem> GetTourItems()
         {
-            DbCommand getAllToursCommand = database.CreateCommand("SELECT * FROM public.\"tour_item\";");
+            DbCommand getAllToursCommand = database.CreateCommand(SQL_GET_ALL_TOURS);
             return QueryToursFromDb(getAllToursCommand);
+        }
+
+        // get last tourId
+        public int GetLastTourId()
+        {
+            DbCommand getLastTourIdCommand = database.CreateCommand(SQL_GET_LAST_TOURID);
+            IEnumerable<TourItem> tourItems = QueryToursFromDb(getLastTourIdCommand);
+            return tourItems.FirstOrDefault().TourId;
         }
 
         //quering tours from postgres database
@@ -75,7 +84,7 @@ namespace SWE2_TourPlanner.DataAccessLayer.PostgresSqlServer
                             reader["from"].ToString(),
                             reader["to"].ToString(),
                             reader["image_path"].ToString(),
-                            reader["route"].ToString()
+                            Convert.ToDouble(reader["distance"])
                         ));
                     }
                 }
